@@ -1,11 +1,14 @@
 import "./Notes.css";
 
 function Note(){
+
+    let title = "Name";
+    let text = "Comet";
     return(
         <div className="note">
         <span className="material-symbols-outlined check-circle">check_circle</span>
-        <div className="title">Test Title</div>
-        <div className="text">Test Text</div>
+        <div className="title">{title}</div>
+        <div className="text">{text}</div>
         <div className="note-footer">
             <div className="tooltip">
                 <span className="material-symbols-outlined hover small-icons">add_alert</span>
