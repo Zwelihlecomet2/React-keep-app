@@ -1,6 +1,6 @@
 import "./Sidebar.css";
 
-function Sidebar(){
+let Sidebar = () =>{
     return (
         <div className="side-bar">
             <div className="sidebar-items active-item">

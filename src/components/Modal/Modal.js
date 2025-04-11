@@ -1,6 +1,6 @@
 import "./Modal.css";
 
-function Modal(){
+let Modal = () =>{ 
     return(
         <div className="modal">
             <div className="modal-content">

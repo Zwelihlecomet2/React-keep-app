@@ -1,6 +1,6 @@
 import "./Form.css";
 
-function Form(){
+let Form = () =>{ 
     return(
         <div>
             <div className="form-container inactive-form">
