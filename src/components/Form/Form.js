@@ -1,10 +1,20 @@
 import "./Form.css";
 
 let Form = () =>{ 
+    const activeForm = document.querySelector(".active-form");
+
+    const inactiveFormClickedOn = (event) =>{
+        console.log(activeForm);
+    };
+
+    const formCloseButton = (event) =>{
+        event.preventDefault();
+    };
+
     return(
         <div>
             <div className="form-container inactive-form">
-                <form action="">
+                <form action="" onClick = {inactiveFormClickedOn}>
                     <input type="text" placeholder="Take a note... " className="note-text" />
                     <div className="form-actions">
                         <div className="tooltip">
@@ -23,7 +33,7 @@ let Form = () =>{
                 </form>
             </div>
     
-            <div className="form-container active-form">
+            <div className="form-container active-form form-hidden">
                 <form className="form" id="form">
                     <input type="text" placeholder="title" id="note-title" className="note-title" /> 
                     <input type="text" placeholder="Take a note... " id="note-text" className="note-text" />
@@ -62,7 +72,7 @@ let Form = () =>{
                                 <span className="tooltip-text">Redo</span>
                             </div>
                         </div>
-                        <button className="close-btn">Close</button>
+                        <button className="close-btn" onClick = {formCloseButton}>Close</button>
                     </div>
                 </form>
             </div>

@@ -47,6 +47,10 @@ form .form-actions{
     display: none;
 } */
 
+.form-hidden{
+    display: none;
+}
+
 .form{
     display: flex;
     flex-direction: column;
