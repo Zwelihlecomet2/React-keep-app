@@ -1,22 +1,38 @@
+import React, { useState } from "react";
+
 import "./Form.css";
 
 let Form = () =>{ 
-    const activeForm = document.querySelector(".active-form");
 
-    const inactiveFormClickedOn = (event) =>{
-        console.log(activeForm);
+    const [title, setTitle] = useState("");
+    const [text, setText] = useState("");
+
+    let enteredTitle = "";
+    let enteredText = "";
+
+    const submitForm = (event) =>{
+        event.preventDefault();
+        setTitle("");
+        setText("");
     };
 
-    const formCloseButton = (event) =>{
-        event.preventDefault();
+    const titleChange = (event) =>{
+        enteredTitle = event.target.value;
+        setTitle(enteredTitle);
+    }
+
+    const textChange = (event) =>{
+        enteredText = event.target.value;
+        setText(enteredText);
     };
 
     return(
         <div>
-            <div className="form-container inactive-form">
+            
+            {/* <div className="form-container inactive-form">
                 <form action="" onClick = {inactiveFormClickedOn}>
                     <input type="text" placeholder="Take a note... " className="note-text" />
-                    <div className="form-actions">
+                    <div className="form- actions">
                         <div className="tooltip">
                             <span className="material-symbols-outlined hover">check_box</span>
                             <span className="tooltip-text">New list</span>
@@ -31,12 +47,12 @@ let Form = () =>{
                         </div>
                     </div>
                 </form>
-            </div>
+            </div> */}
     
-            <div className="form-container active-form form-hidden">
-                <form className="form" id="form">
-                    <input type="text" placeholder="title" id="note-title" className="note-title" /> 
-                    <input type="text" placeholder="Take a note... " id="note-text" className="note-text" />
+            <div className="form-container active-form">
+                <form onSubmit={submitForm} className="form" id="form">
+                    <input onChange = {titleChange} value={title} type="text" placeholder="title" id="note-title" className="note-title" /> 
+                    <input onChange={textChange} value={text} type="text" placeholder="Take a note... " id="note-text" className="note-text" />
                     <div className="form-actions">
                         <div className="icons">
                             <div className="tooltip">
@@ -72,7 +88,7 @@ let Form = () =>{
                                 <span className="tooltip-text">Redo</span>
                             </div>
                         </div>
-                        <button className="close-btn" onClick = {formCloseButton}>Close</button>
+                        <button className="close-btn">Close</button>
                     </div>
                 </form>
             </div>
