@@ -7,24 +7,27 @@ let Form = () =>{
     const [title, setTitle] = useState("");
     const [text, setText] = useState("");
 
-    let enteredTitle = "";
-    let enteredText = "";
-
     const submitForm = (event) =>{
         event.preventDefault();
+
+        const note = {
+            id: "123",
+            title,
+            text
+        };
+        console.log(note);
         setTitle("");
         setText("");
     };
 
     const titleChange = (event) =>{
-        enteredTitle = event.target.value;
-        setTitle(enteredTitle);
-    }
+        setTitle(event.target.value);
+    };
 
     const textChange = (event) =>{
-        enteredText = event.target.value;
-        setText(enteredText);
+        setText(event.target.value);
     };
+
 
     return(
         <div>
