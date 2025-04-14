@@ -5,8 +5,9 @@ let Notes = (props) =>{
     const { note } = props;
     return(
         <div className="notes">
-            <Note title = {note[0].title} text = {note[0].text}/>
-            <Note title = {note[1].title} text = {note[1].text}/>
+            {note.map((note, index) =>{
+                return <Note key={index} title = {note.title} text = {note.text}/>
+            })}
         </div>
     )
 }

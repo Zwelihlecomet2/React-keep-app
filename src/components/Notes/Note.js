@@ -3,15 +3,12 @@ import "./Notes.css";
 
 let Note = (props) =>{
 
-    console.log(useState(props.title));
-
     const [title, setTitle] = useState(props.title);
     const [text, setText] = useState(props.text);
 
     const noteClicked = () =>{
         setTitle("Title Changes");
         setText("Text Changes");
-        console.log(`Title: ${title}`);
     }
     return(
         <div className="note" onClick = {noteClicked}>

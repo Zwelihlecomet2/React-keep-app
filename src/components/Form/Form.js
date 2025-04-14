@@ -2,8 +2,7 @@ import React, { useState } from "react";
 
 import "./Form.css";
 
-let Form = () =>{ 
-
+let Form = (props) =>{ 
     const [title, setTitle] = useState("");
     const [text, setText] = useState("");
 
@@ -15,7 +14,7 @@ let Form = () =>{
             title,
             text
         };
-        console.log(note);
+        props.addNote(note);
         setTitle("");
         setText("");
     };
