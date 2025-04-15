@@ -7,11 +7,11 @@ import Modal from "./components/Modal/Modal";
 import Note from "./components/Notes/Note";
 
 const NOTES = [
-  {
-    id: 1,
-    title: "Title One",
-    text: "Text One"
-  },
+  // {
+  //   id: 1,
+  //   title: "Title One",
+  //   text: "Text One"
+  // },
 ];
 
 let App = () =>{
