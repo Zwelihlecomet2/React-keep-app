@@ -36,11 +36,7 @@
     margin-top: 15px;
     padding: 0;
     justify-content: center;
-    visibility: visible
-}
-
-.visible-footer{
-    visibility: visible;
+    visibility: hidden;
 }
 
 
@@ -53,5 +49,5 @@
     position: absolute;
     top: -20px;
     left: -20px;
-    visibility: visible;
+    visibility: hidden;
 }

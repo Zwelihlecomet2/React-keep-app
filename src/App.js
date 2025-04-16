@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Navbar from "./components/Navbar/Navbar"; 
+import Navbar from "./components/Navbar/Navbar";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Form from "./components/Form/Form";
 import Notes from "./components/Notes/Notes";
@@ -14,12 +14,11 @@ const NOTES = [
   // },
 ];
 
-let App = () =>{
-
+let App = () => {
   const [notes, setNote] = useState(NOTES);
 
-  const addNote = (note) =>{
-    setNote((prevState) =>{
+  const addNote = (note) => {
+    setNote((prevState) => {
       return [...notes, note];
     });
   };
@@ -28,11 +27,11 @@ let App = () =>{
     <>
       <Navbar />
       <Sidebar />
-      <Form addNote={addNote}/>
-      <Notes note = {notes}/>
+      <Form addNote={addNote} />
+      <Notes note={notes} />
       <Modal />
     </>
   );
-}
+};
 
 export default App;
