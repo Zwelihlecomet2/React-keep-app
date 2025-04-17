@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { uid } from "uid";
 
 import "./Form.css";
 
@@ -16,7 +17,7 @@ let Form = (props) => {
     setActive(false);
 
     const note = {
-      id: "123",
+      id: uid(5),
       title,
       text,
     };

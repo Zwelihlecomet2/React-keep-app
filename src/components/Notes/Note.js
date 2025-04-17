@@ -6,10 +6,11 @@ let Note = (props) => {
   const [text, setText] = useState(props.text);
   const [isHover, setHover] = useState(false);
 
-  const noteClicked = () => {
-    setTitle("Title Changes");
-    setText("Text Changes");
-  };
+  const handleDelete = () => props.deleteNote(props.id)
+  // const noteClicked = () => {
+  //   setTitle("Title Changes");
+  //   setText("Text Changes");
+  // };
 
   const hoverOver = (event) => {
     setHover(true);
@@ -22,7 +23,7 @@ let Note = (props) => {
   return (
     <div
       className="note"
-      onClick={noteClicked}
+      // onClick={noteClicked}
       onMouseOver={hoverOver}
       onMouseOut={hoverOut}
     >
@@ -62,7 +63,7 @@ let Note = (props) => {
           </span>
           <span className="tooltip-text">Image</span>
         </div>
-        <div className="tooltip archive">
+        <div className="tooltip archive" onClick={handleDelete}>
           <span className="material-symbols-outlined hover small-icons">
             archive
           </span>

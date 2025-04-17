@@ -8,7 +8,7 @@ import Note from "./components/Notes/Note";
 
 const NOTES = [
   // {
-  //   id: 1,
+  //   id: Math.random() + "abc",
   //   title: "Title One",
   //   text: "Text One"
   // },
@@ -19,16 +19,24 @@ let App = () => {
 
   const addNote = (note) => {
     setNote((prevState) => {
-      return [...notes, note];
+      return [...prevState, note];
     });
   };
+
+  const deleteNote = (id) =>{
+    setNote((prevState) =>{
+      return prevState.filter((note) =>{
+        return id !== note.id;
+      });
+    })
+  }
 
   return (
     <>
       <Navbar />
       <Sidebar />
       <Form addNote={addNote} />
-      <Notes note={notes} />
+      <Notes note={notes}  deleteNote={deleteNote}/>
       <Modal />
     </>
   );
