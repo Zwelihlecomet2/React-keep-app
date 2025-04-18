@@ -6,16 +6,19 @@ import Notes from "./components/Notes/Notes";
 import Modal from "./components/Modal/Modal";
 import Note from "./components/Notes/Note";
 
-const NOTES = [
-  // {
-  //   id: Math.random() + "abc",
-  //   title: "Title One",
-  //   text: "Text One"
-  // },
-];
+const NOTES = [];
 
 let App = () => {
-  const [notes, setNote] = useState(NOTES);
+  const [note, setNote] = useState(NOTES);
+  const [selectedNote, setSelectedNote] = useState({});
+
+  const [isModalOpen, setModal] = useState(false);
+
+  const toggleModal = (event) => {
+    setModal((prevState) => {
+      return !prevState;
+    });
+  };
 
   const addNote = (note) => {
     setNote((prevState) => {
@@ -23,21 +26,26 @@ let App = () => {
     });
   };
 
-  const deleteNote = (id) =>{
-    setNote((prevState) =>{
-      return prevState.filter((note) =>{
+  const deleteNote = (id) => {
+    setNote((prevState) => {
+      return prevState.filter((note) => {
         return id !== note.id;
       });
-    })
-  }
+    });
+  };
 
   return (
     <>
       <Navbar />
       <Sidebar />
       <Form addNote={addNote} />
-      <Notes note={notes}  deleteNote={deleteNote}/>
-      <Modal />
+      <Notes
+        note={note}
+        deleteNote={deleteNote}
+        toggleModal={toggleModal}
+        setSelectedNote={setSelectedNote}
+      />
+      <Modal isModalOpen={isModalOpen} selectedNote={selectedNote}/>
     </>
   );
 };

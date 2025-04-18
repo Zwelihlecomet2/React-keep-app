@@ -2,15 +2,19 @@ import React, { use, useState } from "react";
 import "./Notes.css";
 
 let Note = (props) => {
-  const [title, setTitle] = useState(props.title);
-  const [text, setText] = useState(props.text);
+  const { note, deleteNote, toggleModal, setSelectedNote } = props;
+  const [title, setTitle] = useState(note.title);
+  const [text, setText] = useState(note.text);
   const [isHover, setHover] = useState(false);
 
-  const handleDelete = () => props.deleteNote(props.id)
-  // const noteClicked = () => {
-  //   setTitle("Title Changes");
-  //   setText("Text Changes");
-  // };
+  const handleDelete = () => {
+    deleteNote(note.id)
+  }
+
+  const noteClicked = () => {
+    toggleModal();
+    setSelectedNote(note);
+  };
 
   const hoverOver = (event) => {
     setHover(true);
@@ -23,7 +27,7 @@ let Note = (props) => {
   return (
     <div
       className="note"
-      // onClick={noteClicked}
+      onClick={noteClicked}
       onMouseOver={hoverOver}
       onMouseOut={hoverOut}
     >

@@ -4,9 +4,12 @@ import { uid } from "uid";
 import "./Form.css";
 
 let Form = (props) => {
+  console.log(props);
+  const { edit } = props;
+
   const [title, setTitle] = useState("");
   const [text, setText] = useState("");
-  const [isActive, setActive] = useState(false);
+  const [isActive, setActive] = useState(edit);
 
   const inActiveClickedOn = (event) => {
     setActive(true);
