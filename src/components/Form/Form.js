@@ -4,11 +4,11 @@ import { uid } from "uid";
 import "./Form.css";
 
 let Form = (props) => {
-  console.log(props);
-  const { edit } = props;
+  // console.log(props);
+  const { selectedNote, edit, toggleModal } = props;
 
-  const [title, setTitle] = useState("");
-  const [text, setText] = useState("");
+  const [title, setTitle] = useState(edit && selectedNote.title || "");
+  const [text, setText] = useState(edit && selectedNote.text || "");
   const [isActive, setActive] = useState(edit);
 
   const inActiveClickedOn = (event) => {
@@ -17,14 +17,21 @@ let Form = (props) => {
 
   const submitForm = (event) => {
     event.preventDefault();
-    setActive(false);
 
-    const note = {
-      id: uid(5),
-      title,
-      text,
-    };
-    props.addNote(note);
+    if(!edit){
+      setActive(false);
+
+      const note = {
+        id: uid(5),
+        title,
+        text,
+      };
+      props.addNote(note);
+    }
+    else{
+      toggleModal();
+    }
+
     setTitle("");
     setText("");
   };

@@ -38,14 +38,17 @@ let App = () => {
     <>
       <Navbar />
       <Sidebar />
-      <Form addNote={addNote} />
+      <Form addNote={addNote} toggleModal={toggleModal}/>
       <Notes
         note={note}
         deleteNote={deleteNote}
         toggleModal={toggleModal}
         setSelectedNote={setSelectedNote}
       />
-      <Modal isModalOpen={isModalOpen} selectedNote={selectedNote}/>
+      {
+        isModalOpen && <Modal isModalOpen={isModalOpen} selectedNote={selectedNote} toggleModal={toggleModal}/>
+      }
+      
     </>
   );
 };
