@@ -5,7 +5,7 @@ import "./Form.css";
 
 let Form = (props) => {
   // console.log(props);
-  const { selectedNote, edit, toggleModal } = props;
+  const { selectedNote, edit, toggleModal, editNote } = props;
 
   const [title, setTitle] = useState(edit && selectedNote.title || "");
   const [text, setText] = useState(edit && selectedNote.text || "");
@@ -29,6 +29,11 @@ let Form = (props) => {
       props.addNote(note);
     }
     else{
+      editNote({
+        id: selectedNote.id,
+        title,
+        text
+      });
       toggleModal();
     }
 

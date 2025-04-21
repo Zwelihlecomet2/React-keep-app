@@ -3,8 +3,6 @@ import "./Notes.css";
 
 let Note = (props) => {
   const { note, deleteNote, toggleModal, setSelectedNote } = props;
-  const [title, setTitle] = useState(note.title);
-  const [text, setText] = useState(note.text);
   const [isHover, setHover] = useState(false);
 
   const handleDelete = () => {
@@ -37,8 +35,8 @@ let Note = (props) => {
       >
         check_circle
       </span>
-      <div className="title">{title}</div>
-      <div className="text">{text}</div>
+      <div className="title">{note.title}</div>
+      <div className="text">{note.text}</div>
       <div
         className="note-footer"
         style={{ visibility: isHover ? "visible" : "hidden" }}

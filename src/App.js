@@ -34,6 +34,19 @@ let App = () => {
     });
   };
 
+  const editNote = (editedNote) =>{
+    setNote(prevNote =>{
+      const newArray = prevNote.map((e) =>{
+        if(editedNote.id === e.id){
+          e.title = editedNote.title;
+          e.text = editedNote.text;
+        }
+        return e;
+      });
+      return newArray;
+    });
+  }
+
   return (
     <>
       <Navbar />
@@ -46,7 +59,7 @@ let App = () => {
         setSelectedNote={setSelectedNote}
       />
       {
-        isModalOpen && <Modal isModalOpen={isModalOpen} selectedNote={selectedNote} toggleModal={toggleModal}/>
+        isModalOpen && <Modal isModalOpen={isModalOpen} selectedNote={selectedNote} toggleModal={toggleModal} editNote={editNote}/>
       }
       
     </>
